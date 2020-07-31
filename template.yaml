@@ -8,26 +8,43 @@ Globals:
   Function:
     Timeout: 3
 
+Parameters:
+  TableNameParameter:
+    Type: String
+    Default: "CloudResumeCounterHits"
+
 Resources:
   CounterFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
       Policies:
         - DynamoDBWritePolicy:
-            TableName: "CloudResumeCounterHits"
+            TableName:
+              Ref: TableNameParameter
       CodeUri: counter/
       Handler: app.lambda_handler
       Runtime: python3.8
       Environment:
         Variables:
           DYNAMODB_ENDPOINT: ""
-          DYNAMODB_TABLE: "CloudResumeCounterHits"
+          DYNAMODB_TABLE:
+            Ref: TableNameParameter
       Events:
         Counter:
           Type: HttpApi # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
           Properties:
+            ApiId:
+              !Ref CounterApi
             Path: /counter
             Method: get
+  CounterApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      CorsConfiguration:
+        AllowMethods:
+          - "*"
+        AllowOrigins:
+          - "*"
   CounterTable:
     Type: AWS::DynamoDB::Table
     Properties:
@@ -39,9 +56,9 @@ Resources:
         -
           AttributeName: "path"
           KeyType: "HASH"
-      TableName: "CloudResumeCounterHits"
+      TableName:
+        Ref: TableNameParameter
       BillingMode: PAY_PER_REQUEST
-  # CounterFunctionRole:
 
 Outputs:
   # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
@@ -49,7 +66,7 @@ Outputs:
   # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
   CounterApi:
     Description: "API Gateway endpoint URL for $default stage for Counter function"
-    Value: !Sub "https://${ServerlessHttpApi}.execute-api.${AWS::Region}.amazonaws.com/counter"
+    Value: !Sub "https://${CounterApi}.execute-api.${AWS::Region}.amazonaws.com/counter"
   CounterFunction:
     Description: "Counter Lambda Function ARN"
     Value: !GetAtt CounterFunction.Arn
