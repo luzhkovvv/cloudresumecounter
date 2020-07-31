@@ -1,0 +1,45 @@
+{
+  "version":"2.0",
+  "routeKey":"GET /counter",
+  "rawPath":"/counter",
+  "rawQueryString":"path=test",
+  "headers":{
+      "accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+      "accept-encoding":"gzip, deflate, br",
+      "accept-language":"en-US,en;q=0.9,ru;q=0.8",
+      "content-length":"0",
+      "host":"hb66kxxzue.execute-api.us-east-1.amazonaws.com",
+      "sec-fetch-dest":"document",
+      "sec-fetch-mode":"navigate",
+      "sec-fetch-site":"none",
+      "sec-fetch-user":"?1",
+      "upgrade-insecure-requests":"1",
+      "user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.122 Safari/537.36",
+      "x-amzn-trace-id":"Root=1-5f22bd1e-26314ab0436bacb401fdd698",
+      "x-forwarded-for":"94.19.145.47",
+      "x-forwarded-port":"443",
+      "x-forwarded-proto":"https"
+  },
+  "queryStringParameters":{
+      "path":"test"
+  },
+  "requestContext":{
+      "accountId":"380200352141",
+      "apiId":"hb66kxxzue",
+      "domainName":"hb66kxxzue.execute-api.us-east-1.amazonaws.com",
+      "domainPrefix":"hb66kxxzue",
+      "http":{
+          "method":"GET",
+          "path":"/counter",
+          "protocol":"HTTP/1.1",
+          "sourceIp":"94.19.145.47",
+          "userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.122 Safari/537.36"
+      },
+      "requestId":"QfJ8xgl9IAMEMnQ=",
+      "routeKey":"GET /test",
+      "stage":"default",
+      "time":"30/Jul/2020:12:29:18 +0000",
+      "timeEpoch":1596112158494
+  },
+  "isBase64Encoded":false
+}

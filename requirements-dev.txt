@@ -1,0 +1,4 @@
+-r ./counter/requirements.txt
+pytest
+pytest-mock
+moto
