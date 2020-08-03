@@ -45,6 +45,9 @@ Resources:
           - "*"
         AllowOrigins:
           - "*"
+      DefaultRouteSettings:
+        ThrottlingBurstLimit: 10
+        ThrottlingRateLimit: 10
   CounterTable:
     Type: AWS::DynamoDB::Table
     Properties:
