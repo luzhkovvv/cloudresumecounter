@@ -5,6 +5,8 @@ This project is part of my attempt on [Cloud Resume Challenge](https://cloudresu
 - Serverless backend - this project
 - [CI/CD pipelines](https://github.com/luzhkovvv/cloudresumepipelines)
 
+This project provides backend part of web site hits counter with permanent hits count storage and HTTP endpoint for accessing and updating hits count for particular site. Project is based on AWS serverless services.
+
 This project is built on AWS SAM using [AWS Toolkit for Visual Studio Code](https://aws.amazon.com/visualstudiocode/) and may be deployed by [SAM CLI](https://github.com/aws/aws-sam-cli). It includes the following files and folders:
 - counter - code for lambda function;
 - events - test events;
